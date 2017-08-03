@@ -46,6 +46,7 @@
   "render-tests/line-join/property-function": "https://github.com/mapbox/mapbox-gl-js/pull/5020",
   "render-tests/line-join/property-function-dasharray": "https://github.com/mapbox/mapbox-gl-js/pull/5020",
   "render-tests/regressions/mapbox-gl-js#2305": "https://github.com/mapbox/mapbox-gl-native/issues/6927",
+  "render-tests/regressions/mapbox-gl-js#2929": "https://github.com/mapbox/mapbox-gl-native/issues/9704",
   "render-tests/regressions/mapbox-gl-js#3010": "skip - needs issue",
   "render-tests/regressions/mapbox-gl-js#3548": "skip - needs issue",
   "render-tests/regressions/mapbox-gl-js#3682": "https://github.com/mapbox/mapbox-gl-js/issues/3682",
