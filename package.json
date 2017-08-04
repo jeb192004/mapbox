@@ -37,7 +37,7 @@
     "install": "node-pre-gyp install --fallback-to-build=false || make node",
     "test": "tape platform/node/test/js/**/*.test.js",
     "test-memory": "node --expose-gc platform/node/test/memory.test.js",
-    "test-suite": "run-s test-render test-query",
+    "test-suite": "run-s test-render \"test-render -- --recycle-map\" test-query",
     "test-render": "node platform/node/test/render.test.js",
     "test-query": "node platform/node/test/query.test.js"
   },
