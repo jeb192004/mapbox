@@ -14,6 +14,10 @@ Style::Style(Scheduler& scheduler, FileSource& fileSource, float pixelRatio)
 
 Style::~Style() = default;
 
+void Style::clear() {
+    impl->clear();
+}
+
 void Style::loadJSON(const std::string& json) {
     impl->loadJSON(json);
 }

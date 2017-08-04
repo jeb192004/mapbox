@@ -121,7 +121,8 @@ test('Map', function(t) {
             'setBearing',
             'setPitch',
             'dumpDebugLogs',
-            'queryRenderedFeatures'
+            'queryRenderedFeatures',
+            'clearStyle'
         ]);
 
         for (var key in keys) {

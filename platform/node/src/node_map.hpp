@@ -59,6 +59,8 @@ public:
     static void DumpDebugLogs(const Nan::FunctionCallbackInfo<v8::Value>&);
     static void QueryRenderedFeatures(const Nan::FunctionCallbackInfo<v8::Value>&);
 
+    static void ClearStyle(const Nan::FunctionCallbackInfo<v8::Value>&);
+
     void startRender(RenderOptions options);
     void renderFinished();
 

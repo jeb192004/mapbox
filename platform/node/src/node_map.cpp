@@ -67,6 +67,7 @@ void NodeMap::Init(v8::Local<v8::Object> target) {
 
     Nan::SetPrototypeMethod(tpl, "dumpDebugLogs", DumpDebugLogs);
     Nan::SetPrototypeMethod(tpl, "queryRenderedFeatures", QueryRenderedFeatures);
+    Nan::SetPrototypeMethod(tpl, "clearStyle", ClearStyle);
 
     constructor.Reset(tpl->GetFunction());
     Nan::Set(target, Nan::New("Map").ToLocalChecked(), tpl->GetFunction());
@@ -959,6 +960,20 @@ void NodeMap::QueryRenderedFeatures(const Nan::FunctionCallbackInfo<v8::Value>& 
         return Nan::ThrowError(ex.what());
     }
 }
+
+void NodeMap::ClearStyle(const Nan::FunctionCallbackInfo<v8::Value>& info) {
+    auto nodeMap = Nan::ObjectWrap::Unwrap<NodeMap>(info.Holder());
+    if (!nodeMap->map) return Nan::ThrowError(releasedMessage());
+
+    try {
+        nodeMap->map->getStyle().clear();
+    } catch (const std::exception &ex) {
+        return Nan::ThrowError(ex.what());
+    }
+
+    info.GetReturnValue().SetUndefined();
+}
+
 
 NodeMap::NodeMap(v8::Local<v8::Object> options)
     : pixelRatio([&] {

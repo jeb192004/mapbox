@@ -37,6 +37,34 @@ Style::Impl::Impl(Scheduler& scheduler_, FileSource& fileSource_, float pixelRat
 
 Style::Impl::~Impl() = default;
 
+void Style::Impl::clear() {
+    mutated = false;
+    loaded = false;
+    spriteLoaded = false;
+
+    url.clear();
+    json.clear();
+
+    styleRequest.reset();
+
+    glyphURL.clear();
+    images.clear();
+    sources.clear();
+    layers.clear();
+
+    transitionOptions = {};
+    transitionOptions.duration = util::DEFAULT_TRANSITION_DURATION;
+    light = std::make_unique<Light>();
+
+    name.clear();
+    defaultLatLng = {};
+    defaultZoom = 0;
+    defaultBearing = 0;
+    defaultPitch = 0;
+
+    lastError = nullptr;
+}
+
 void Style::Impl::loadJSON(const std::string& json_) {
     lastError = nullptr;
     observer->onStyleLoading();

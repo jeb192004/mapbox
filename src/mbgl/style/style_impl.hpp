@@ -39,6 +39,8 @@ public:
     Impl(Scheduler&, FileSource&, float pixelRatio);
     ~Impl() override;
 
+    void clear();
+
     void loadJSON(const std::string&);
     void loadURL(const std::string&);
 

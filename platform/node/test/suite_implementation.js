@@ -71,7 +71,9 @@ module.exports = function (style, options, callback) {
             var results = options.queryGeometry ?
               map.queryRenderedFeatures(options.queryGeometry, options.queryOptions || {}) :
               [];
-            if (!options.recycleMap) {
+            if (options.recycleMap) {
+                map.clearStyle();
+            } else {
                 map.release();
             }
             if (timedOut) return;
